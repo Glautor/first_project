@@ -90,7 +90,7 @@ int
 main(int argc, char* argv[])
 {
   // Send a greeting to the trace device (skipped on Release).
-  trace_puts("Hello ARM World!");
+  // trace_puts("Hello ARM World!");
 
   int x = 0;
 
@@ -99,7 +99,7 @@ main(int argc, char* argv[])
 
   // At this stage the system clock should have already been configured
   // at high speed.
-  trace_printf("System clock: %u Hz\n", SystemCoreClock);
+  // trace_printf("System clock: %u Hz\n", SystemCoreClock);
 
   timer_start();
 
@@ -110,6 +110,8 @@ main(int argc, char* argv[])
   // Infinite loop
   while (1)
     {
+	  trace_printf("2+3=%d", x);
+
       blink_led_on();
       timer_sleep(seconds == 0 ? TIMER_FREQUENCY_HZ : BLINK_ON_TICKS);
 
@@ -119,7 +121,7 @@ main(int argc, char* argv[])
       ++seconds;
 
       // Count seconds on the trace device.
-      trace_printf("Second %u\n", seconds);
+//      trace_printf("Second %u\n", seconds);
     }
   // Infinite loop, never return.
 }
